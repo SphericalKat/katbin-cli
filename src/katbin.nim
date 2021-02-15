@@ -1,8 +1,10 @@
+import std/[
+  strutils, strformat,
+  httpclient, json
+]
+
 import cligen
-import strutils, strformat
 import regex
-import httpclient
-import json
 
 const urlRe = re"^(https?:\/\/)?((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}|((\d{1,3}\.){3}\d{1,3}))(\:\d+)?(\/[-a-z\d%_.~+]*)*(\?[;&a-z\d%_.~+=-]*)?(\#[-a-z\d_]*)?$"
 
@@ -31,7 +33,7 @@ proc shorten(url: string) =
   if res.code != Http201:
     quit("fatal: the server returned an error", 1)
 
-  let parsedRes = to(parseJson(res.body), ApiResponse)
+  let parsedRes = parseJson(res.body).to(ApiResponse)
   echo &"success: shortened url is available at https://katb.in/{parsedRes.paste_id}"
   
 
