@@ -1,10 +1,10 @@
 import cligen
 import strutils, strformat
-import nre
+import regex
 import httpclient
 import json
 
-let urlRe = re"^(https?:\/\/)?((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}|((\d{1,3}\.){3}\d{1,3}))(\:\d+)?(\/[-a-z\d%_.~+]*)*(\?[;&a-z\d%_.~+=-]*)?(\#[-a-z\d_]*)?$"
+const urlRe = re"^(https?:\/\/)?((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}|((\d{1,3}\.){3}\d{1,3}))(\:\d+)?(\/[-a-z\d%_.~+]*)*(\?[;&a-z\d%_.~+=-]*)?(\#[-a-z\d_]*)?$"
 
 type
   ApiResponse = object
@@ -15,8 +15,8 @@ proc shorten(url: string) =
   if url.isEmptyOrWhitespace:
     quit("fatal: You must specify a url to shorten.", 1)
   
-  if url.match(urlRe).isNone:
-    quit(&"fatal: {url} is not a valid url.")
+  if not url.match(urlRe):
+    quit(&"fatal: {url} is not a valid url.", 1)
 
   
   var client = newHttpClient()

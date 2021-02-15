@@ -10,4 +10,4 @@ bin           = @["katbin"]
 
 # Dependencies
 
-requires "nim >= 1.4.2", "cligen"
+requires "nim >= 1.4.2", "cligen", "regex"
