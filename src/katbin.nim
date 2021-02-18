@@ -38,6 +38,9 @@ proc shorten(url: string) =
   if res.code != Http201: # if request is not successful, quit
     quit("fatal: the server returned an error", 1)
 
+  # close http client
+  client.close()
+
   # serialize response
   let parsedRes = parseJson(res.body).to(ApiResponse)
 
