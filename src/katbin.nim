@@ -16,12 +16,15 @@ type
     paste_id: string
 
 # shortens a URL and prints out shortened URL to stdout
-proc shorten(url: string) =
-  if url.isEmptyOrWhitespace: # if user enters blank URL, quit
+proc shorten(url: seq[string]) =
+  if len(url) == 0: # if user enters blank URL, quit
     quit("fatal: You must specify a url to shorten.", 1)
+
+  if len(url) > 1: # warn the user if they enter more than one positional argument
+    echo "warn: more than one argument specified. choosing the first"
   
-  if not url.match(urlRe): # if user enters invalid URL, quit
-    quit(&"fatal: {url} is not a valid url.", 1)
+  if not url[0].match(urlRe): # if user enters invalid URL, quit
+    quit(&"fatal: {url[0]} is not a valid url.", 1)
 
   # initialize a new http client and set content type headers
   var client = newHttpClient()
@@ -30,7 +33,7 @@ proc shorten(url: string) =
   # initialize POST request body
   let body = %* {
     "is_url": true,
-    "content": url
+    "content": url[0]
   }
 
   # make request to katbin API
@@ -46,7 +49,7 @@ proc shorten(url: string) =
 
   # print shortened url
   echo &"success: shortened url is available at https://katb.in/{parsedRes.paste_id}"
-  
+
 
 proc main =
   dispatchMulti([shorten, help = { # dispatch CLI procs to cligen
