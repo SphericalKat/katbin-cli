@@ -16,44 +16,40 @@ type
     paste_id: string
 
 # shortens a URL and prints out shortened URL to stdout
-proc shorten(url: seq[string]) =
-  if len(url) == 0: # if user enters blank URL, quit
+proc shorten(urls: seq[string]) =
+  if urls.len == 0: # if user enters blank URL, quit
     quit("fatal: You must specify a url to shorten.", 1)
-
-  if len(url) > 1: # warn the user if they enter more than one positional argument
-    echo "warn: more than one argument specified. choosing the first"
-  
-  if not url[0].match(urlRe): # if user enters invalid URL, quit
-    quit(&"fatal: {url[0]} is not a valid url.", 1)
 
   # initialize a new http client and set content type headers
   var client = newHttpClient()
   client.headers = newHttpHeaders({ "Content-Type": "application/json" })
 
-  # initialize POST request body
-  let body = %* {
-    "is_url": true,
-    "content": url[0]
-  }
+  for url in urls:
+    if not url.match(urlRe): # if user enters invalid URL, quit
+      quit(&"fatal: {url[0]} is not a valid url.", 1)
+    
+    # initialize POST request body
+    let body = %* {
+      "is_url": true,
+      "content": url
+    }
 
-  # make request to katbin API
-  let res = client.request("https://api.katb.in/api/paste", httpMethod = HttpPost, body = $body)
-  if res.code != Http201: # if request is not successful, quit
-    quit("fatal: the server returned an error", 1)
+    # make request to katbin API
+    let res = client.request("https://api.katb.in/api/paste", httpMethod = HttpPost, body = $body)
+    if res.code != Http201: # if request is not successful, quit
+      quit("fatal: the server returned an error", 1)
+
+    # serialize response
+    let parsedRes = parseJson(res.body).to(ApiResponse)
+    # print shortened url
+    echo &"success: shortened url for {url} is available at https://katb.in/{parsedRes.paste_id}"
 
   # close http client
   client.close()
 
-  # serialize response
-  let parsedRes = parseJson(res.body).to(ApiResponse)
-
-  # print shortened url
-  echo &"success: shortened url is available at https://katb.in/{parsedRes.paste_id}"
-
-
 proc main =
   dispatchMulti([shorten, help = { # dispatch CLI procs to cligen
-    "url": "The url to shorten"
+    "urls": "The url to shorten"
   }])
 
 main() # run main proc
