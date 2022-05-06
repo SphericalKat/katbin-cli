@@ -25,30 +25,28 @@ fn main() {
 
     // match commands
     match args.command {
-        Commands::Paste(paste) => {
-            match paste.command.unwrap() {
-                PasteCommands::Create(create) => match paste::create_paste(create.body) {
-                    Ok(paste) => {
-                        let url = format!("https://katb.in/{}", paste.id.blue());
-                        if paste.is_url {
-                            let view_url = format!("https://katb.in/v/{}", paste.id);
-                            println!(
-                                "Short URL created successfully. Access it at {}, and view it at {}.",
-                                url.bright_blue(),
-                                view_url.bright_blue()
-                            );
-                        } else {
-                            println!(
-                                "Paste created successfully. Access it at {}.",
-                                url.bright_blue()
-                            );
-                        }
+        Commands::Paste(paste) => match paste.command.unwrap() {
+            PasteCommands::Create(create) => match paste::create_paste(create.body) {
+                Ok(paste) => {
+                    let url = format!("https://katb.in/{}", paste.id.blue());
+                    if paste.is_url {
+                        let view_url = format!("https://katb.in/v/{}", paste.id);
+                        println!(
+                            "Short URL created successfully. Access it at {}, and view it at {}.",
+                            url.bright_blue(),
+                            view_url.bright_blue()
+                        );
+                    } else {
+                        println!(
+                            "Paste created successfully. Access it at {}.",
+                            url.bright_blue()
+                        );
                     }
-                    Err(err) => {
-                        println!("error: {}", err)
-                    }
-                },
-            }
-        }
+                }
+                Err(err) => {
+                    println!("error: {}", err)
+                }
+            },
+        },
     }
 }

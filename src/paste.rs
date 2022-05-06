@@ -1,14 +1,14 @@
+use anyhow::Result;
 use clap::{Args, Subcommand};
 use reqwest::blocking::Client;
 use serde::Deserialize;
-use anyhow::Result;
 use serde_json::json;
 
 #[derive(Deserialize, Debug)]
 pub struct PasteResponse {
     pub content: String,
     pub id: String,
-    pub is_url: bool
+    pub is_url: bool,
 }
 
 #[derive(Debug, Args)]
