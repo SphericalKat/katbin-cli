@@ -1,0 +1,38 @@
+{
+    "branches": [
+      "main",
+      { "name": "develop", "prerelease": true }
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      [
+        "@semantic-release/exec",
+        {
+          "verifyConditionsCmd": "semantic-release-rust verify-conditions",
+          "prepareCmd": "semantic-release-rust prepare ${nextRelease.version}",
+          "publishCmd": "semantic-release-rust publish"
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json",
+            "package-lock.json",
+            "CHANGELOG.md"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}\n\n\nskip-checks: true"
+        }
+      ],
+      [
+        "@semantic-release/github",
+        {
+          "assets": "dist/*.tgz"
+        }
+      ]
+    ],
+    "repositoryUrl": "https://github.com/sphericalkat/katbin-cli"
+  }
+  

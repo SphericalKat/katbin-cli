@@ -1,0 +1,14 @@
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+name: Check Rust code
+jobs:
+  check:
+    uses: msfjarvis/shared-workflows/.github/workflows/test-rust-project.yml@main

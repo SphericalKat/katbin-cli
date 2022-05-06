@@ -1,0 +1,59 @@
+name: Release to GHR
+on:
+  push:
+    branches:
+      - develop
+      - main
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        with:
+          fetch-depth: 0
+          submodules: recursive
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        run: npm install
+
+      - uses: rui314/setup-mold@v1
+        if: runner.os == 'Linux'
+        with:
+          make-default: true
+
+      - name: Install Rust toolchain (Unix)
+        if: runner.os != 'Windows'
+        shell: bash
+        run:
+          curl https://sh.rustup.rs -sSf | sh -s -- --profile default --default-toolchain stable -y
+
+      - name: Cache cargo registry and build outputs
+        uses: actions/cache@26968a09c0ea4f3e233fdddbafd1166051a095f6
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/bin
+            target
+          key: linux-cargo-stable-${{ hashFiles('Cargo.lock') }}
+
+      - name: Install semantic-release-rust
+        uses: baptiste0928/cargo-install@v1
+        with:
+          crate: semantic-release-rust
+          version: "1.0.0-alpha.8"
+
+      - name: Release
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ENVIRONMENT: ${{ github.ref }}
+          GHR: true
+        run: npx semantic-release
