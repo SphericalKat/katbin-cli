@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/sphericalkat/katbin-cli/compare/v1.0.1...v1.1.0) (2022-05-06)
+
+
+### Features
+
+* release linux binary in CI ([3f48b59](https://github.com/sphericalkat/katbin-cli/commit/3f48b5908ba839d2eaad6d124e316a5d9be991c9))
+
 # [1.1.0-develop.1](https://github.com/sphericalkat/katbin-cli/compare/v1.0.1...v1.1.0-develop.1) (2022-05-06)
 
 
