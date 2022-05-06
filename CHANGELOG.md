@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/sphericalkat/katbin-cli/compare/v1.0.0...v1.0.1) (2022-05-06)
+
+
+### Bug Fixes
+
+* **cargo:** bump patch version to prevent publishing conflicts ([83e94d1](https://github.com/sphericalkat/katbin-cli/commit/83e94d151816c53ca45040d8fb3eede34c78d054))
+
 # 1.0.0 (2022-05-06)
 
 
