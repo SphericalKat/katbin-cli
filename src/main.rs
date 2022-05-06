@@ -1,3 +1,9 @@
+use std::{
+    env,
+    ffi::OsString,
+    io::{self, Read},
+};
+
 use clap::{Parser, Subcommand};
 use paste::{Paste, PasteCommands};
 
@@ -19,9 +25,27 @@ enum Commands {
     Paste(Paste),
 }
 
+fn stdin_to_args() -> Vec<OsString> {
+    let mut args: Vec<OsString> = env::args_os().collect();
+
+    let mut body = String::from("");
+    io::stdin().read_to_string(&mut body).unwrap();
+    args.push(body.into());
+
+    args
+}
+
 fn main() {
     // parse CLI arguments
-    let args = Cli::parse();
+    let args: Cli;
+
+    // no input from stdin
+    if atty::is(atty::Stream::Stdin) {
+        args = Cli::parse();
+    } else {
+        // parse input from stdin
+        args = Cli::parse_from(stdin_to_args().iter());
+    }
 
     // match commands
     match args.command {

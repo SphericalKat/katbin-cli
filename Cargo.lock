@@ -391,6 +391,7 @@ name = "katbin"
 version = "1.0.0"
 dependencies = [
  "anyhow",
+ "atty",
  "clap",
  "colored",
  "reqwest",
