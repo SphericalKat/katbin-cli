@@ -50,6 +50,23 @@ jobs:
           crate: semantic-release-rust
           version: "1.0.0-alpha.8"
 
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          target: x86_64-unknown-linux-gnu
+          override: true
+      - name: Build x86 linux binary
+        uses: actions-rs/cargo@v1
+        with:
+          use-cross: true
+          command: build
+          args: --release --target x86_64-unknown-linux-gnu
+
+      - name: Copy targets
+        run: |
+          mkdir dist
+          mv target/x86_64-unknown-linux-gnu/release/katbin dist/katbin-x86_64-unknown-linux-gnu
+
       - name: Release
         env:
           CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
