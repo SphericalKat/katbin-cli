@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/sphericalkat/katbin-cli/compare/v1.1.0...v1.2.0) (2022-05-07)
+
+
+### Features
+
+* **release:** create new release ([020dcd4](https://github.com/sphericalkat/katbin-cli/commit/020dcd467bbfb730b1ef92ccaa2f9b673e9fb6c5))
+
 # [1.1.0](https://github.com/sphericalkat/katbin-cli/compare/v1.0.1...v1.1.0) (2022-05-06)
 
 
