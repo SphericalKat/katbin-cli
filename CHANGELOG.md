@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/sphericalkat/katbin-cli/compare/v1.2.0...v1.2.1) (2022-05-07)
+
+
+### Bug Fixes
+
+* **paste:** return only URL as output ([2e16dc8](https://github.com/sphericalkat/katbin-cli/commit/2e16dc85dde884c5ee225b5a6b67cb66fec2348f))
+
 # [1.2.0](https://github.com/sphericalkat/katbin-cli/compare/v1.1.0...v1.2.0) (2022-05-07)
 
 
