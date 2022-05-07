@@ -6,8 +6,6 @@ use std::{
 
 use clap::Parser;
 
-use colored::*;
-
 mod paste;
 
 #[derive(Debug, Parser)]
@@ -42,20 +40,7 @@ fn main() {
     // match commands
     match paste::create_paste(args.body) {
         Ok(paste) => {
-            let url = format!("https://katb.in/{}", paste.id.blue());
-            if paste.is_url {
-                let view_url = format!("https://katb.in/v/{}", paste.id);
-                println!(
-                    "Short URL created successfully. Access it at {}, and view it at {}.",
-                    url.bright_blue(),
-                    view_url.bright_blue()
-                );
-            } else {
-                println!(
-                    "Paste created successfully. Access it at {}.",
-                    url.bright_blue()
-                );
-            }
+            println!("https://katb.in/{}", paste.id)
         }
         Err(err) => {
             println!("error: {}", err)
