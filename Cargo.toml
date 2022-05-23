@@ -1,6 +1,6 @@
 [package]
 name = "katbin"
-version ="1.2.2-develop.1"
+version ="1.2.2"
 authors = ["Amogh Lele 'sphericalkat' <amolele@gmail.com>"]
 edition = "2021"
 description = "A CLI for https://katb.in"

@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/sphericalkat/katbin-cli/compare/v1.2.1...v1.2.2) (2022-05-23)
+
+
+### Bug Fixes
+
+* **release:** include Cargo.toml in @semantic-release/git plugin ([3606dfa](https://github.com/sphericalkat/katbin-cli/commit/3606dfaed52d96331cbb48ef983a78c513497b62))
+
 ## [1.2.2-develop.1](https://github.com/sphericalkat/katbin-cli/compare/v1.2.1...v1.2.2-develop.1) (2022-05-07)
 
 
