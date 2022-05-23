@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/sphericalkat/katbin-cli/compare/v1.2.2...v1.3.0) (2022-05-23)
+
+
+### Features
+
+* **build:** reduce binary size by ~10x ([fed0241](https://github.com/sphericalkat/katbin-cli/commit/fed024177a7390df78acbb2b712dcb32ee7e1ae7))
+
 # [1.3.0-develop.1](https://github.com/sphericalkat/katbin-cli/compare/v1.2.2...v1.3.0-develop.1) (2022-05-23)
 
 
