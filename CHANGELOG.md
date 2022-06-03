@@ -1,3 +1,11 @@
+## [1.3.1](https://github.com/sphericalkat/katbin-cli/compare/v1.3.0...v1.3.1) (2022-06-03)
+
+
+### Bug Fixes
+
+* **build:** update Cargo lockfile ([3edd42f](https://github.com/sphericalkat/katbin-cli/commit/3edd42f11320ef5bf124e26a51b8be0a2bec6648))
+* **release:** add Cargo lockfile to semver bump commit assets ([a155c33](https://github.com/sphericalkat/katbin-cli/commit/a155c33eb3cb0eeb315bba54c02d8b23efbdc890))
+
 # [1.3.0](https://github.com/sphericalkat/katbin-cli/compare/v1.2.2...v1.3.0) (2022-05-23)
 
 
