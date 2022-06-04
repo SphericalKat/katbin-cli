@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/sphericalkat/katbin-cli/compare/v1.3.1...v1.3.2) (2022-06-04)
+
+
+### Bug Fixes
+
+* **release:** run cargo check to force-update lockfile ([22ca888](https://github.com/sphericalkat/katbin-cli/commit/22ca888c8eea32b4dd1d3c83406fd75aa29945fd))
+
 ## [1.3.1](https://github.com/sphericalkat/katbin-cli/compare/v1.3.0...v1.3.1) (2022-06-03)
 
 
