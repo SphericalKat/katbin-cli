@@ -1,38 +1,40 @@
 {
-    "branches": [
-      "main",
-      { "name": "develop", "prerelease": true }
+  "branches": [
+    "main",
+    {
+      "name": "develop",
+      "prerelease": true
+    }
+  ],
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    [
+      "@semantic-release/exec",
+      {
+        "verifyConditionsCmd": "semantic-release-rust verify-conditions",
+        "prepareCmd": "semantic-release-rust prepare ${nextRelease.version} && cargo check",
+        "publishCmd": "semantic-release-rust publish"
+      }
     ],
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/changelog",
-      [
-        "@semantic-release/exec",
-        {
-          "verifyConditionsCmd": "semantic-release-rust verify-conditions",
-          "prepareCmd": "semantic-release-rust prepare ${nextRelease.version}",
-          "publishCmd": "semantic-release-rust publish"
-        }
-      ],
-      [
-        "@semantic-release/git",
-        {
-          "assets": [
-            "CHANGELOG.md",
-            "Cargo.toml",
-            "Cargo.lock"
-          ],
-          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}\n\n\nskip-checks: true"
-        }
-      ],
-      [
-        "@semantic-release/github",
-        {
-          "assets": "dist/*"
-        }
-      ]
+    [
+      "@semantic-release/git",
+      {
+        "assets": [
+          "CHANGELOG.md",
+          "Cargo.toml",
+          "Cargo.lock"
+        ],
+        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}\n\n\nskip-checks: true"
+      }
     ],
-    "repositoryUrl": "https://github.com/sphericalkat/katbin-cli"
-  }
-  
+    [
+      "@semantic-release/github",
+      {
+        "assets": "dist/*"
+      }
+    ]
+  ],
+  "repositoryUrl": "https://github.com/sphericalkat/katbin-cli"
+}
