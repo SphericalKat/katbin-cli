@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/sphericalkat/katbin-cli/compare/v1.3.2...v1.3.3) (2022-08-17)
+
+
+### Bug Fixes
+
+* **deps:** update rust crate anyhow to 1.0.62 ([216d393](https://github.com/sphericalkat/katbin-cli/commit/216d393818a79f1159fb5f58c231b8e4fcb14f6b))
+
 ## [1.3.2](https://github.com/sphericalkat/katbin-cli/compare/v1.3.1...v1.3.2) (2022-06-04)
 
 
