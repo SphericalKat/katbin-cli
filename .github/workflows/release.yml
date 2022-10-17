@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@e6d535c99c374d0c3f6d8cd8086a57b43c6c700a
+        uses: actions/checkout@1f9a0c22da41e6ebfa534300ef656657ea2c6707
         with:
           fetch-depth: 0
           submodules: recursive
