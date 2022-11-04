@@ -36,7 +36,7 @@ jobs:
           curl https://sh.rustup.rs -sSf | sh -s -- --profile default --default-toolchain stable -y
 
       - name: Cache cargo registry and build outputs
-        uses: actions/cache@ac8075791e805656e71b4ba23325ace9e3421120
+        uses: actions/cache@8bec1e4cc329270e6364af0aee38d62e50012e62
         with:
           path: |
             ~/.cargo/registry
