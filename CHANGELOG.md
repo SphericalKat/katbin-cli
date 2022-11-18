@@ -1,3 +1,11 @@
+## [1.3.12](https://github.com/sphericalkat/katbin-cli/compare/v1.3.11...v1.3.12) (2022-11-18)
+
+
+### Bug Fixes
+
+* **deps:** update rust crate clap to 4.0.26 ([37d7a55](https://github.com/sphericalkat/katbin-cli/commit/37d7a55c11757de011958664709d646979f1470f))
+* **deps:** update rust crate serde_json to 1.0.88 ([0d2ff5d](https://github.com/sphericalkat/katbin-cli/commit/0d2ff5dc66df53bc2def710fec04d4e7be94c91a))
+
 ## [1.3.11](https://github.com/sphericalkat/katbin-cli/compare/v1.3.10...v1.3.11) (2022-11-07)
 
 
