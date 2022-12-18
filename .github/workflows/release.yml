@@ -44,12 +44,6 @@ jobs:
             target
           key: linux-cargo-stable-${{ hashFiles('Cargo.lock') }}
 
-      - name: Install semantic-release-rust
-        uses: baptiste0928/cargo-install@v1
-        with:
-          crate: semantic-release-rust
-          version: "1.0.0-alpha.8"
-
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
