@@ -13,9 +13,9 @@
     [
       "@semantic-release/exec",
       {
-        "verifyConditionsCmd": "semantic-release-rust verify-conditions",
-        "prepareCmd": "semantic-release-rust prepare ${nextRelease.version} && cargo check",
-        "publishCmd": "semantic-release-rust publish"
+        "verifyConditionsCmd": "cargo check",
+        "prepareCmd": "cargo set-version ${nextRelease.version} && cargo package --allow-dirty",
+        "publishCmd": "cargo publish --allow-dirty"
       }
     ],
     [

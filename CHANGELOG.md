@@ -1,3 +1,15 @@
+## [1.3.14-develop.1](https://github.com/sphericalkat/katbin-cli/compare/v1.3.13...v1.3.14-develop.1) (2022-12-18)
+
+
+### Bug Fixes
+
+* **build:** install cargo-edit ([fe99ebb](https://github.com/sphericalkat/katbin-cli/commit/fe99ebb991969c4b3823bf44838d63a6969818f5))
+* **build:** remove semantic-release-rust ([ebe2f63](https://github.com/sphericalkat/katbin-cli/commit/ebe2f63d4bff788a4b9fe2558aea7a3e6c2a0d80))
+* **deps:** update rust crate anyhow to 1.0.68 ([51bd56c](https://github.com/sphericalkat/katbin-cli/commit/51bd56ceeeb33db1bfb039606f750e99c3118b5e))
+* **deps:** update rust crate clap to 4.0.27 ([6c68670](https://github.com/sphericalkat/katbin-cli/commit/6c68670d8e1481227765fe8de17255c7323701b9))
+* **deps:** update rust crate clap to 4.0.29 ([e3cde32](https://github.com/sphericalkat/katbin-cli/commit/e3cde32311296ef017de376cb1c7ed85f2937b27))
+* **deps:** update rust crate serde_json to 1.0.91 ([3017709](https://github.com/sphericalkat/katbin-cli/commit/3017709cd6e3486b9497f5a4c6912c0671c515bf))
+
 ## [1.3.13](https://github.com/sphericalkat/katbin-cli/compare/v1.3.12...v1.3.13) (2022-11-23)
 
 

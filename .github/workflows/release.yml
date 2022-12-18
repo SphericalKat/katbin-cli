@@ -44,11 +44,11 @@ jobs:
             target
           key: linux-cargo-stable-${{ hashFiles('Cargo.lock') }}
 
-      - name: Install semantic-release-rust
+      - name: Install cargo-edit
         uses: baptiste0928/cargo-install@v1
         with:
-          crate: semantic-release-rust
-          version: "1.0.0-alpha.8"
+          crate: cargo-edit
+          version: "0.11.6"
 
       - uses: actions-rs/toolchain@v1
         with:
