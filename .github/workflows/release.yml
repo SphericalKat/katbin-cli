@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  release:
+  build:
     name: ${{ matrix.job.target }} (${{ matrix.job.os }})
     strategy:
       fail-fast: false
@@ -28,18 +28,11 @@ jobs:
     runs-on: ${{ matrix.job.os }}
     steps:
       - name: Checkout
-        uses: actions/checkout@3ba5ee6fac7e0e30e2ea884e236f282d3a775891
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
           submodules: recursive
           token: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-
-      - name: Install dependencies
-        run: npm install
 
       - uses: rui314/setup-mold@v1
         if: runner.os == 'Linux'
@@ -54,7 +47,7 @@ jobs:
           override: true
 
       - name: Cache cargo registry and build outputs
-        uses: actions/cache@4723a57e26efda3a62cbde1812113b730952852d
+        uses: actions/cache@v3
         with:
           path: |
             ~/.cargo/registry
@@ -90,7 +83,6 @@ jobs:
 
           mv target/${{ matrix.job.target }}/release/katbin${EXE_suffix} dist/${BIN_NAME}
 
-          echo "BIN_NAME=${BIN_NAME}" >> $GITHUB_OUTPUT
           echo "BIN_PATH=dist/${BIN_NAME}" >> $GITHUB_OUTPUT
 
       - name: Upload ${{ matrix.job.target }} binary
@@ -99,10 +91,34 @@ jobs:
           name: katbin-${{ matrix.job.target }}
           path: ${{ steps.build.outputs.BIN_PATH }}
 
+  publish:
+    name: Publish Release
+    needs: build
+    runs-on: ubuntu-latest
+    env:
+      CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      ENVIRONMENT: ${{ github.ref }}
+      GHR: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          submodules: recursive
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          path: dist
+
       - name: Publish Release
-        env:
-          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ENVIRONMENT: ${{ github.ref }}
-          GHR: true
         run: npx semantic-release
