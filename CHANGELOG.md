@@ -1,3 +1,21 @@
+## [1.3.14](https://github.com/sphericalkat/katbin-cli/compare/v1.3.13...v1.3.14) (2023-04-16)
+
+
+### Bug Fixes
+
+* **build:** install cargo-edit ([fe99ebb](https://github.com/sphericalkat/katbin-cli/commit/fe99ebb991969c4b3823bf44838d63a6969818f5))
+* **build:** remove semantic-release-rust ([ebe2f63](https://github.com/sphericalkat/katbin-cli/commit/ebe2f63d4bff788a4b9fe2558aea7a3e6c2a0d80))
+* **deps:** update rust crate anyhow to 1.0.68 ([51bd56c](https://github.com/sphericalkat/katbin-cli/commit/51bd56ceeeb33db1bfb039606f750e99c3118b5e))
+* **deps:** update rust crate clap to 4.0.27 ([6c68670](https://github.com/sphericalkat/katbin-cli/commit/6c68670d8e1481227765fe8de17255c7323701b9))
+* **deps:** update rust crate clap to 4.0.29 ([e3cde32](https://github.com/sphericalkat/katbin-cli/commit/e3cde32311296ef017de376cb1c7ed85f2937b27))
+* **deps:** update rust crate clap to 4.0.30 ([a134cd8](https://github.com/sphericalkat/katbin-cli/commit/a134cd8a2ed9705e5abff57f901dd20cc2285c1b))
+* **deps:** update rust crate clap to 4.0.32 ([9f47811](https://github.com/sphericalkat/katbin-cli/commit/9f478111ec4b7048b2bf45256beb4c8b6b13d10b))
+* **deps:** update rust crate serde to 1.0.151 ([b2fda1e](https://github.com/sphericalkat/katbin-cli/commit/b2fda1ee69fef9ec4fd9a2a7937737f9d2c149f7))
+* **deps:** update rust crate serde to 1.0.152 ([865be12](https://github.com/sphericalkat/katbin-cli/commit/865be12e4b53df1e3ded910d318254e4a9eefe18))
+* **deps:** update rust crate serde_json to 1.0.91 ([3017709](https://github.com/sphericalkat/katbin-cli/commit/3017709cd6e3486b9497f5a4c6912c0671c515bf))
+* publish only after builds are done ([dad0c4e](https://github.com/sphericalkat/katbin-cli/commit/dad0c4ed10cb3d8b9118f8b74bebf0e8f2d4805d))
+* **release:** change assets directory and install `cargo-edit` ([2bacd04](https://github.com/sphericalkat/katbin-cli/commit/2bacd0471e5a4e95c662e65089d90fefaa82eec1))
+
 ## [1.3.14-develop.1](https://github.com/sphericalkat/katbin-cli/compare/v1.3.13...v1.3.14-develop.1) (2022-12-18)
 
 
