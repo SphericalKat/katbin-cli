@@ -1,3 +1,13 @@
+## [1.3.15](https://github.com/sphericalkat/katbin-cli/compare/v1.3.14...v1.3.15) (2023-04-17)
+
+
+### Bug Fixes
+
+* **deps:** update rust crate anyhow to 1.0.70 ([be0aa1f](https://github.com/sphericalkat/katbin-cli/commit/be0aa1f10fa5ea7407c9ebb9e3c1a1ad889430e2))
+* **deps:** update rust crate clap to 4.2.2 ([21e39d2](https://github.com/sphericalkat/katbin-cli/commit/21e39d2e995e73e3d05770571daecdb40c55a338))
+* **deps:** update rust crate serde to 1.0.160 ([e74f491](https://github.com/sphericalkat/katbin-cli/commit/e74f491c204c7420b7fc0983a71eb0d5dafeb4fb))
+* **deps:** update rust crate serde_json to 1.0.96 ([1f36251](https://github.com/sphericalkat/katbin-cli/commit/1f362510a99b88d727d212fb9b2927f02473b920))
+
 ## [1.3.14](https://github.com/sphericalkat/katbin-cli/compare/v1.3.13...v1.3.14) (2023-04-16)
 
 
