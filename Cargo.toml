@@ -14,7 +14,7 @@ include = ["src/**/*", "../LICENSE-*", "./README.md"]
 anyhow = "1.0.70"
 atty = "0.2.14"
 clap = { version = "4.2.4", features = ["derive"] }
-colored = "2.0.0"
+colored = "2.1.0"
 reqwest = { version = "0.11", default-features = false, features = ["blocking", "json", "rustls-tls"] }
 serde = { version = "1.0.160", features = ["derive"] }
 serde_json = "1.0.96"
